@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>JODA – Shop & Earn (MVP)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <img src="logo.png" alt="JODA" class="logo"/>
+      <span>JODA</span>
+    </div>
+    <nav>
+      <button id="nav-home" class="link active">Home</button>
+      <button id="nav-gateway" class="link">Shop</button>
+      <button id="nav-dashboard" class="link">Dashboard</button>
+    </nav>
+  </header>
+
+  <main id="view-home" class="view active">
+    <section class="hero">
+      <h1>Shop Smart. Get Paid in JODA.</h1>
+      <p>Use our partner-only gateway and earn JODA tokens for eligible purchases.</p>
+      <div class="counter-card">
+        <div class="counter-title">Your JODA Balance</div>
+        <div class="counter-value" id="balanceDisplay">2,345.00</div>
+        <div class="counter-sub">Pending: <span id="pendingDisplay">150.00</span> • Next unlock in <span id="unlockDisplay">12d</span></div>
+      </div>
+      <button id="goShopping" class="cta">GO SHOPPING</button>
+    </section>
+    <section class="mini-picks">
+      <h2>Today’s Picks</h2>
+      <div id="picksRow" class="cards"></div>
+    </section>
+  </main>
+
+  <main id="view-gateway" class="view">
+    <section class="gateway-head">
+      <h2>Your Shopping Gateway</h2>
+      <input id="searchInput" type="search" placeholder="Search products or stores" />
+    </section>
+
+    <section>
+      <h3>Recommended for You</h3>
+      <div id="recommendedRow" class="cards"></div>
+    </section>
+
+    <section>
+      <h3>Top Trending Partners</h3>
+      <div id="trendingRow" class="cards"></div>
+    </section>
+
+    <section>
+      <h3>Categories</h3>
+      <div class="chips" id="categoryChips"></div>
+      <div id="categoryResults" class="cards"></div>
+    </section>
+  </main>
+
+  <main id="view-dashboard" class="view">
+    <section class="dashboard">
+      <h2>Rewards Dashboard</h2>
+      <div class="stats">
+        <div class="stat">
+          <div class="label">Total Earned</div>
+          <div class="value" id="statTotal">3,420.00 JODA</div>
+        </div>
+        <div class="stat">
+          <div class="label">Unlocked</div>
+          <div class="value" id="statUnlocked">380.00 JODA</div>
+        </div>
+        <div class="stat">
+          <div class="label">Locked</div>
+          <div class="value" id="statLocked">3,040.00 JODA</div>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <h3>Activity</h3>
+        <ul id="activityList"></ul>
+      </div>
+
+      <div class="withdraw">
+        <h3>Withdraw</h3>
+        <p>Ready to move unlocked JODA to your wallet? Enter BEP-20 address.</p>
+        <input id="walletInput" type="text" placeholder="0xYourBSCAddress" />
+        <button id="withdrawBtn" class="cta">Request Withdrawal</button>
+        <div id="withdrawMsg" class="note"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>© 2025 JODA Network • English • MVP Prototype</small>
+  </footer>
+
+  <script src="partners.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

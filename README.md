@@ -1,2 +1,1 @@
-# joda-mvp-platform
-Here are the files for Joda Mvp
+JODA MVP Bundle: frontend, backend mock, smart-contracts, docs.
