@@ -58,7 +58,7 @@ main.view.active { display: block; }
 .footer { padding: 30px 16px; text-align: center; color: var(--muted); }
 /* --- JODA logo sizing --- */
 .logo {
-  width: 120px;         /* tweak as you like */
+  width: 120px;
   height: auto;
   display: block;
 }
@@ -69,3 +69,12 @@ main.view.active { display: block; }
     width: 140px;
   }
 }
+
+/* Retina display support */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-resolution: 192dpi) {
+  .logo {
+    content: url('JODALogo1@2x.png');
+  }
+}
+
