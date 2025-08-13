@@ -87,6 +87,12 @@
  cursor: pointer; 
 }
 
+.chip:hover {
+  background: var(--primary);
+  color: white;
+  transition: background 0.2s ease-in-out;
+}
+
 .chip.active { 
   outline: 2px solid var(--primary); 
 }
