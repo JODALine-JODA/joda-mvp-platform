@@ -56,3 +56,16 @@ main.view.active { display: block; }
 .withdraw input { width: 360px; max-width: 100%; background: #0f1930; border: 1px solid #1f2d4c; color: var(--text); border-radius: 10px; padding: 10px; }
 .note { color: var(--muted); font-size: 12px; margin-top: 8px; }
 .footer { padding: 30px 16px; text-align: center; color: var(--muted); }
+/* --- JODA logo sizing --- */
+.logo {
+  width: 120px;         /* tweak as you like */
+  height: auto;
+  display: block;
+}
+
+/* Optional: slightly larger on wide screens */
+@media (min-width: 768px) {
+  .logo {
+    width: 140px;
+  }
+}
