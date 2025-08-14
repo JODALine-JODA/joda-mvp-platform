@@ -1,68 +1,265 @@
-/* ====== GLOBAL COLOR VARIABLES ====== */
+/* =========================
+   JODA MVP – Global Theme
+   ========================= */
+
 :root {
-  --primary: #1a2742; /* Main theme color */
-  --chip: #4cafef;    /* Background color for category chips */
-  --muted: #999999;   /* Muted text color */
-  --card: #ffffff;    /* Card background color */
+  /* Brand */
+  --color-primary: #0E3A66;        /* JODA blue */
+  --color-primary-600: #2A5D8E;
+  --color-primary-700: #082643;
+
+  --color-accent: #2ED1B1;         /* CTA / positive highlight */
+  --color-accent-2: #E6B84A;       /* rewards / badges */
+
+  /* Neutrals */
+  --color-ink: #0D1421;            /* main text */
+  --color-muted: #64748B;          /* secondary text */
+  --color-border: #E5EAF1;
+  --color-card: #FFFFFF;
+
+  /* App background (No. 7 light gradient) */
+  --color-bg: radial-gradient(1200px 600px at 20% -10%, #E7F1FF 0%, transparent 60%),
+              radial-gradient(1000px 500px at 110% 0%, #E1FBF5 0%, transparent 50%),
+              #F6F9FC; /* base */
+
+  /* Effects */
+  --radius: 12px;
+  --radius-sm: 10px;
+  --shadow: 0 10px 24px rgba(14, 58, 102, 0.08);
+
+  /* Component helpers */
+  --chip-bg: #EFF6FF;
+  --chip-border: #D8E7F8;
 }
 
-/* ====== EXISTING STYLES ====== */
-.counter-title {
-  color: var(--muted);
+/* Optional Dark Mode (No. 8): add class="dark" on <html> to enable */
+html.dark {
+  --color-bg: #0B1220;
+  --color-card: #111827;
+  --color-ink: #E5EBF5;
+  --color-muted: #9AA7B7;
+  --color-border: #1F2A3A;
+  --shadow: 0 10px 24px rgba(0,0,0,0.25);
 }
 
-.counter-value {
-  font-size: 40px;
-  font-weight: bold;
+/* =========================
+   Base
+   ========================= */
+
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji", sans-serif;
+  color: var(--color-ink);
+  background: var(--color-bg);
 }
 
-.counter-sub {
-  color: var(--muted);
-}
+/* =========================
+   Header / Topbar
+   ========================= */
 
-.cta {
-  background: linear-gradient(168deg, #1a2742, #0f4c75);
-  border: 0;
-  padding: 12px 18px;
-  border-radius: 6px;
-}
-
-.gateway-head {
+.topbar {
+  position: sticky;
+  top: 0;
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  padding: 12px 16px;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--color-border);
+  z-index: 10;
+}
+html.dark .topbar {
+  background: rgba(11,18,32,0.75);
 }
 
-#searchInput {
-  width: 320px;
-  max-width: 100%;
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; letter-spacing: .3px; }
+.logo { width: 120px; height: auto; display: block; }   /* base logo size */
+@media (min-width: 768px) { .logo { width: 140px; } }
+
+/* Retina logo swap */
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+       only screen and (min-resolution: 192dpi) {
+  .logo {
+    content: url('JODALogo1@2x.png');
+    width: 120px;
+    height: auto;
+  }
 }
 
-.chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-
-.chip {
-  background: var(--chip);
-  color: white;
-  padding: 6px 10px;
-  border-radius: 12px;
+nav .link {
+  background: transparent;
+  color: var(--color-muted);
+  border: 0;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
 }
-
-.chip.active {
-  outline: 2px solid var(--primary);
+nav .link.active,
+nav .link:hover {
+  color: var(--color-primary-700);
+  background: #EEF3FA;
 }
+html.dark nav .link.active,
+html.dark nav .link:hover {
+  color: #E6EEF9;
+  background: #111a2e;
+}
+
+/* =========================
+   Layout: Views
+   ========================= */
+
+main.view { display: none; padding: 24px; max-width: 1100px; margin: 0 auto; }
+main.view.active { display: block; }
+
+/* =========================
+   Hero / Home
+   ========================= */
+
+.hero { text-align: center; padding: 36px 12px; }
+.hero h1 { font-size: 32px; margin: 0 0 8px; color: var(--color-primary-700); }
+.hero p  { color: var(--color-muted); max-width: 720px; margin: 0 auto 24px; }
+
+.counter-card {
+  margin: 0 auto 16px; max-width: 520px; padding: 16px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.counter-title { color: var(--color-muted); font-size: 13px; }
+.counter-value { font-size: 40px; font-weight: 800; margin: 6px 0; }
+.counter-sub   { color: var(--color-muted); font-size: 12px; }
+
+.cta {
+  background: var(--color-accent);
+  color: #0b3a31;
+  border: 0;
+  padding: 12px 18px;
+  border-radius: var(--radius-sm);
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter .15s ease;
+}
+.cta:hover { filter: brightness(0.95); }
+
+/* =========================
+   Cards & Grids
+   ========================= */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.card {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: var(--shadow);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card:hover { transform: translateY(-2px); }
+
+/* Store line inside a card */
+.card .store { display: flex; align-items: center; gap: 10px; }
+.badge {
+  background: linear-gradient(135deg, var(--color-accent) 0%, #6de7cf 100%);
+  color: #0b3a31;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+}
+
+/* Buttons inside cards */
+.button-row { display: flex; gap: 8px; }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 10px 14px; border-radius: var(--radius-sm);
+  border: 1px solid transparent; cursor: pointer; transition: all .18s ease;
+  background: #fff; color: var(--color-primary-700); border-color: var(--color-primary-600);
+}
+.btn:hover { background: #f4f8fc; }
+.btn.primary { background: var(--color-accent); color: #0b3a31; border: 0; }
+.btn.primary:hover { filter: brightness(0.95); }
+
+/* =========================
+   Shop / Gateway
+   ========================= */
+
+.gateway-head { display: flex; align-items: center; gap: 10px; justify-content: space-between; flex-wrap: wrap; }
+
+#searchInput {
+  width: 320px; max-width: 100%;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  color: var(--color-ink);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+}
+
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 16px; }
+.chip {
+  background: var(--chip-bg);
+  color: var(--color-primary);
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--chip-border);
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease, transform .12s ease;
+}
+.chip:hover { background: #e7f0ff; transform: translateY(-1px); }
+.chip.active { background: var(--color-primary); color: #fff; border-color: var(--color-primary); }
+
+/* =========================
+   Dashboard
+   ========================= */
 
 .dashboard .stats {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+  gap: 10px; margin-bottom: 16px;
 }
-
 .stat {
-  background: var(--card);
-  border-radius: 8px;
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: var(--shadow);
+}
+.stat .label { color: var(--color-muted); font-size: 12px; }
+.stat .value { font-size: 20px; font-weight: 700; margin-top: 6px; }
+
+.timeline h3 { margin-top: 8px; }
+.timeline ul { list-style: none; padding: 0; margin: 0; }
+.timeline li {
+  background: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 10px; margin-bottom: 8px;
+  display: flex; justify-content: space-between; gap: 8px;
 }
 
+.withdraw { margin-top: 20px; }
+.withdraw input {
+  width: 360px; max-width: 100%;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  color: var(--color-ink);
+  border-radius: var(--radius-sm);
+  padding: 10px;
+}
+.note { color: var(--color-muted); font-size: 12px; margin-top: 8px; }
 
+/* =========================
+   Footer
+   ========================= */
+
+.footer { padding: 30px 16px; text-align: center; color: var(--color-muted); }
