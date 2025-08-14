@@ -1,177 +1,68 @@
-.counter-title { 
-  color: var(--muted); 
+/* ====== GLOBAL COLOR VARIABLES ====== */
+:root {
+  --primary: #1a2742; /* Main theme color */
+  --chip: #4cafef;    /* Background color for category chips */
+  --muted: #999999;   /* Muted text color */
+  --card: #ffffff;    /* Card background color */
 }
 
-.counter-value { 
-  font-size: 40px; 
-  font-weight: bold; 
+/* ====== EXISTING STYLES ====== */
+.counter-title {
+  color: var(--muted);
 }
 
-.counter-sub { 
-  color: var(--muted); 
+.counter-value {
+  font-size: 40px;
+  font-weight: bold;
 }
 
-.cta { 
-  background: linear-gradient(168deg, #1a2742, #0f3a6e); 
-  border: 0; 
-  padding: 12px 18px; 
-  border-radius: 6px; 
+.counter-sub {
+  color: var(--muted);
 }
 
-.mini-picks h2 { 
-  margin: 24px 0 12px; 
+.cta {
+  background: linear-gradient(168deg, #1a2742, #0f4c75);
+  border: 0;
+  padding: 12px 18px;
+  border-radius: 6px;
 }
 
-.cards { 
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  gap: 16px; 
+.gateway-head {
+  display: flex;
+  align-items: center;
 }
 
-.card { 
-  background: var(--card); 
-  border-radius: 8px; 
-  display: flex; 
-  flex-direction: column; 
+#searchInput {
+  width: 320px;
+  max-width: 100%;
 }
 
-.store { 
-  display: flex; 
-  align-items: center; 
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
 }
 
-.badge { 
-  background: #0e1a2f; 
-  color: white; 
-  padding: 4px 8px; 
-  border-radius: 4px; 
-}
-
-.button-row { 
-  display: flex; 
-  gap: 8px; 
-}
-
-.btn { 
-  background: #13203a; 
-  border: 0; 
-  padding: 10px 20px; 
-  color: white; 
-}
-
-.btn.primary { 
-  background: linear-gradient(90deg, #1a2742, #0f3a6e); 
-}
-
-.gateway-head { 
-  display: flex; 
-  align-items: center; 
-}
-
-#searchInput { 
-  width: 320px; 
-  max-width: 100%; 
-}
-
-.chips { 
-  display: flex; 
-  flex-wrap: wrap; 
-  gap: 6px; 
-}
-
-.chip { 
-  background: var(--chip); 
-  color: white; 
-  padding: 6px 10px; 
-  border-radius: 12px;
- cursor: pointer; 
-}
-
-.chip:hover {
-  background: var(--primary);
+.chip {
+  background: var(--chip);
   color: white;
-  transition: background 0.2s ease-in-out;
+  padding: 6px 10px;
+  border-radius: 12px;
+  cursor: pointer;
 }
 
-.chip.active { 
-  outline: 2px solid var(--primary); 
+.chip.active {
+  outline: 2px solid var(--primary);
 }
 
-.dashboard .stats { 
-  display: grid; 
-  grid-template-columns: repeat(2, 1fr); 
+.dashboard .stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
-.stat { 
-  background: var(--card); 
-  border-radius: 8px; 
-  padding: 12px; 
+.stat {
+  background: var(--card);
+  border-radius: 8px;
 }
 
-.stat .label { 
-  color: var(--muted); 
-}
 
-.stat .value { 
-  font-size: 20px; 
-  font-weight: bold; 
-}
-
-.timeline ul { 
-  list-style: none; 
-  padding: 0; 
-  margin: 0; 
-}
-
-.timeline li { 
-  background: var(--card); 
-  border: 1px solid #1a2742; 
-  padding: 8px; 
-  margin-bottom: 6px; 
-}
-
-.withdraw { 
-  margin-top: 20px; 
-}
-
-.withdraw input { 
-  width: 360px; 
-  max-width: 100%; 
-  background: #0f3a6e; 
-}
-
-.note { 
-  color: var(--muted); 
-  font-size: 12px; 
-  margin-top: 6px; 
-}
-
-.footer { 
-  padding: 30px 16px; 
-  text-align: center; 
-  color: var(--muted); 
-}
-
-/* --- JODA logo sizing --- */
-.logo {
-  width: 120px;   /* tweak as you like */
-  height: auto;
-  display: block;
-}
-
-/* Optional: slightly larger on wide screens */
-@media (min-width: 768px) {
-  .logo {
-    width: 140px;
-  }
-}
-
-/* Retina display support */
-@media only screen and (-webkit-min-device-pixel-ratio: 2),
-       only screen and (min-resolution: 192dpi) {
-  .logo {
-    content: url('JODALogo1@2x.png');
-    width: 120px; /* keep same size as standard logo */
-    height: auto;
-  }
-}
